@@ -175,8 +175,6 @@ http://localhost:5173
 
 
 ## 👨‍💻 Author
->>>>>>> 182e63d4c68abb04e5c1a6982acd9722d8b396ee
-
 **Shreekar**
 
 GitHub: https://github.com/Shreekar84
