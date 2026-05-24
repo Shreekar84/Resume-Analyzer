@@ -9,6 +9,8 @@ function App() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const API_URL ="http://127.0.0.1:8000";
+
   const getScoreColor = (score) => {
     if (score >= 75) return "#22c55e";
     if (score >= 50) return "#facc15";
@@ -31,7 +33,7 @@ function App() {
         );
 
         response = await axios.post(
-          "https://resume-analyzer-kzqo.onrender.com/analyze-pdf",
+          `${API_URL}/analyze-pdf`,
           formData,
           {
             headers: {
@@ -42,7 +44,7 @@ function App() {
         );
       } else {
         response = await axios.post(
-          "https://resume-analyzer-kzqo.onrender.com/analyze",
+          `${API_URL}/analyze`,
           {
             resume_text: resumeText,
             job_description: jobDescription,
@@ -50,11 +52,13 @@ function App() {
         );
       }
 
+      console.log(response.data);
+
       setResult(response.data);
     } catch (error) {
       console.error(error);
       alert(
-        "Something went wrong. Check backend server."
+        "Something went wrong. Please try again."
       );
     } finally {
       setLoading(false);
@@ -63,13 +67,12 @@ function App() {
 
   return (
     <div className="container">
-
       <h1>AI Resume Analyzer</h1>
 
       <p className="subtitle">
         Upload your resume or paste text and
-        instantly compare it against a job
-        description.
+        compare it against a job description
+        using AI-powered semantic matching.
       </p>
 
       <h3>Paste Resume Text</h3>
@@ -127,23 +130,25 @@ function App() {
 
       {result && (
         <div className="results">
-
           <h2>Analysis Results</h2>
 
           <div className="score-grid">
-
             <div className="score-card">
-              <h3>TF-IDF Match</h3>
+              <h3>Semantic Match</h3>
 
               <p
                 className="big-score"
                 style={{
                   color: getScoreColor(
-                    result.tfidf_match_score
+                    result.semantic_match_score || 0
                   ),
                 }}
               >
-                {result.tfidf_match_score}%
+                {result.semantic_match_score
+                  ? `${result.semantic_match_score.toFixed(
+                      2
+                    )}%`
+                  : "0.00%"}
               </p>
             </div>
 
@@ -154,14 +159,17 @@ function App() {
                 className="big-score"
                 style={{
                   color: getScoreColor(
-                    result.skill_match_score
+                    result.skill_match_score || 0
                   ),
                 }}
               >
-                {result.skill_match_score}%
+                {result.skill_match_score
+                  ? `${result.skill_match_score.toFixed(
+                      2
+                    )}%`
+                  : "0.00%"}
               </p>
             </div>
-
           </div>
 
           <h3>Resume Skills</h3>
@@ -230,18 +238,17 @@ function App() {
             )
           ) : (
             <p>
-              No recommendations needed
+              No recommendations needed 🎉
             </p>
           )}
-
         </div>
       )}
 
       <footer>
         Built using React, FastAPI,
-        Scikit-Learn, TF-IDF & PDF Parsing
+        Sentence Transformers, NLP &
+        PDF Parsing
       </footer>
-
     </div>
   );
 }
