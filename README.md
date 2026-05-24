@@ -92,6 +92,11 @@ npm run dev
 - Downloadable PDF report
 - Authentication and user accounts
 
+## Screenshots
+![Img loading..](Screenshots/Screenshot%20(165).png)
+![Img2 loading..](Screenshots/Screenshot%20(166).png)
+![Img3 loading..](Screenshots/Screenshot%20(167).png)
+
 ## Author
 
 **Shreekar**
