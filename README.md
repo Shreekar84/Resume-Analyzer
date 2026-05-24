@@ -142,9 +142,6 @@ http://localhost:5173
 ![Img2 loading..](Screenshots/Screenshot%20(166).png)
 ![Img3 loading..](Screenshots/Screenshot%20(167).png)
 
-## Author
-=======
----
 
 ## 📊 How It Works
 
@@ -169,11 +166,6 @@ http://localhost:5173
 - Interactive Data Visualizations
 
 ---
-
-## 📸 Screenshots
-
-
-
 ## 👨‍💻 Author
 **Shreekar**
 
