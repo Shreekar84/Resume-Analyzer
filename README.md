@@ -1,55 +1,59 @@
-# AI Resume Analyzer
+#  AI Resume Analyzer
 
-An AI-powered Resume Analyzer that compares resumes against job descriptions and provides match scores, skill analysis, and recommendations.
+An AI-powered Resume Analyzer that compares resumes against job descriptions using semantic similarity and skill matching. Upload a PDF resume or paste resume text to receive an instant analysis of how well it matches a job description.
 
-## Features
+## Live Demo
 
-- Resume text analysis
-- PDF resume upload support
-- TF-IDF match score calculation
-- Skill extraction and comparison
-- Missing skills detection
-- Personalized recommendations
-- Fast and responsive React UI
+🔗 Frontend: https://resume-analyzer-three-hazel.vercel.app
+
+🔗 Backend API: https://lavish-blessing-production-b046.up.railway.app
+
+---
+
+##  Features
+
+- 📄 Upload Resume PDF
+- 📝 Paste Resume Text
+- 🤖 AI-Powered Semantic Similarity Analysis
+- 🎯 Skill Matching Score
+- 🔍 Missing Skills Detection
+- 💡 Personalized Recommendations
+- ⚡ FastAPI REST API Backend
+- 🎨 Responsive React Frontend
+
+---
 
 ## Tech Stack
 
 ### Frontend
-- React
-- Vite
+- React.js
 - Axios
 - CSS
 
 ### Backend
 - FastAPI
+- Sentence Transformers
 - Scikit-learn
 - PyPDF
-- Python
+- Uvicorn
 
 ### Deployment
-- Render
+- Vercel
+- Railway
 - GitHub
 
-## How It Works
+---
 
-1. Upload a PDF resume or paste resume text.
-2. Paste a job description.
-3. The system extracts skills from both inputs.
-4. Calculates:
-   - TF-IDF similarity score
-   - Skill match percentage
-   - Missing skills
-5. Displays recommendations to improve resume-job alignment.
+## 📂 Project Structure
 
-## Project Structure
-
-```
+```text
 Resume-Analyzer/
 │
 ├── frontend/
 │   ├── src/
 │   ├── public/
-│   └── package.json
+│   ├── package.json
+│   └── ...
 │
 ├── backend/
 │   ├── main.py
@@ -59,46 +63,139 @@ Resume-Analyzer/
 └── README.md
 ```
 
-## Live Demo
+## 📡 API Endpoints
 
-- Frontend: https://resume-analyzer-1-9ntj.onrender.com
-- Backend API: https://resume-analyzer-kzqo.onrender.com
-- API Docs: https://resume-analyzer-kzqo.onrender.com/docs
+### Analyze Resume Text
 
-## Installation
+```http
+POST /analyze
+```
 
-### Backend
+Request Body:
+
+```json
+{
+  "resume_text": "Experienced Python Developer...",
+  "job_description": "Looking for a Python Developer..."
+}
+```
+
+### Analyze Resume PDF
+
+```http
+POST /analyze-pdf
+```
+
+Form Data:
+
+```text
+resume_file : PDF
+job_description : Text
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### Clone Repository
+
+```bash
+git clone https://github.com/Shreekar84/Resume-Analyzer.git
+cd Resume-Analyzer
+```
+
+### Backend Setup
 
 ```bash
 cd backend
+
 pip install -r requirements.txt
+
 uvicorn main:app --reload
 ```
 
-### Frontend
+Backend will run at:
+
+```text
+http://127.0.0.1:8000
+```
+
+### Frontend Setup
 
 ```bash
 cd frontend
+
 npm install
+
 npm run dev
 ```
 
-## Future Improvements
+Frontend will run at:
 
-- ATS score visualization
-- Semantic matching using Sentence Transformers
-- AI-powered resume suggestions
-- Resume keyword highlighting
-- Downloadable PDF report
-- Authentication and user accounts
+```text
+http://localhost:5173
+```
 
+<<<<<<< HEAD
 ## Screenshots
 ![Img loading..](Screenshots/Screenshot%20(165).png)
 ![Img2 loading..](Screenshots/Screenshot%20(166).png)
 ![Img3 loading..](Screenshots/Screenshot%20(167).png)
 
 ## Author
+=======
+---
+
+## 📊 How It Works
+
+1. Upload a PDF resume or paste resume text.
+2. Enter a job description.
+3. The application extracts skills from both inputs.
+4. Sentence Transformers generate embeddings for semantic comparison.
+5. Cosine similarity calculates the semantic match score.
+6. Skill matching identifies common and missing skills.
+7. Results are displayed with recommendations.
+
+---
+
+## 🎯 Future Improvements
+
+- ATS Resume Scoring
+- LLM-Based Resume Suggestions
+- Authentication & User Accounts
+- Resume History Tracking
+- PostgreSQL Database Integration
+- Downloadable Analysis Reports
+- Interactive Data Visualizations
+
+---
+
+## 📸 Screenshots
+
+Add screenshots of:
+
+- Home Page
+- Resume Upload
+- Analysis Results
+- Skill Match Section
+
+Example:
+
+```md
+![Home Page](screenshots/home.png)
+
+![Results](screenshots/results.png)
+```
+
+---
+
+## 👨‍💻 Author
+>>>>>>> 182e63d4c68abb04e5c1a6982acd9722d8b396ee
 
 **Shreekar**
 
-- GitHub: https://github.com/Shreekar84
+GitHub: https://github.com/Shreekar84
+
+---
+
+⭐ If you found this project useful, consider giving it a star on GitHub!
