@@ -31,7 +31,7 @@ function App() {
         );
 
         response = await axios.post(
-          "http://127.0.0.1:8000/analyze-pdf",
+          "https://resume-analyzer-kzqo.onrender.com/analyze-pdf",
           formData,
           {
             headers: {
@@ -42,7 +42,7 @@ function App() {
         );
       } else {
         response = await axios.post(
-          "http://127.0.0.1:8000/analyze",
+          "https://resume-analyzer-kzqo.onrender.com/analyze",
           {
             resume_text: resumeText,
             job_description: jobDescription,
