@@ -9,8 +9,8 @@ function App() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const API_URL =
-  "https://resume-analyzer-kzqo.onrender.com";
+  
+  const API_URL = "https://lavish-blessing-production-6627.up.railway.app";
 
   const getScoreColor = (score) => {
     if (score >= 75) return "#22c55e";
