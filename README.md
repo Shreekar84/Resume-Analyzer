@@ -172,22 +172,7 @@ http://localhost:5173
 
 ## 📸 Screenshots
 
-Add screenshots of:
 
-- Home Page
-- Resume Upload
-- Analysis Results
-- Skill Match Section
-
-Example:
-
-```md
-![Home Page](screenshots/home.png)
-
-![Results](screenshots/results.png)
-```
-
----
 
 ## 👨‍💻 Author
 >>>>>>> 182e63d4c68abb04e5c1a6982acd9722d8b396ee
