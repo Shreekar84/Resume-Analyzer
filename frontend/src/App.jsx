@@ -9,7 +9,8 @@ function App() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const API_URL ="http://127.0.0.1:8000";
+  const API_URL =
+  "https://resume-analyzer-kzqo.onrender.com";
 
   const getScoreColor = (score) => {
     if (score >= 75) return "#22c55e";
