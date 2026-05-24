@@ -136,7 +136,6 @@ Frontend will run at:
 http://localhost:5173
 ```
 
-<<<<<<< HEAD
 ## Screenshots
 ![Img loading..](Screenshots/Screenshot%20(165).png)
 ![Img2 loading..](Screenshots/Screenshot%20(166).png)
