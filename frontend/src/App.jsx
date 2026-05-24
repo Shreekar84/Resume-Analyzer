@@ -10,7 +10,7 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   
-  const API_URL = "https://lavish-blessing-production-6627.up.railway.app";
+  const API_URL ="https://lavish-blessing-production-b046.up.railway.app";
 
   const getScoreColor = (score) => {
     if (score >= 75) return "#22c55e";
