@@ -1,6 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, Form
 from pydantic import BaseModel
-# from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from fastapi.middleware.cors import CORSMiddleware
 from pypdf import PdfReader
@@ -77,19 +77,19 @@ def generate_analysis(resume_text, job_description):
     # TF-IDF Similarity
     # -----------------------------
 
-    # texts = [
-    #     resume_text,
-    #     job_description
-    # ]
+    texts = [
+        resume_text,
+        job_description
+    ]
 
-    # vectorizer = TfidfVectorizer()
+    vectorizer = TfidfVectorizer()
 
-    # vectors = vectorizer.fit_transform(texts)
+    vectors = vectorizer.fit_transform(texts)
 
-    # tfidf_similarity = cosine_similarity(
-    #     vectors[0:1],
-    #     vectors[1:2]
-    # )[0][0]
+    tfidf_similarity = cosine_similarity(
+        vectors[0:1],
+        vectors[1:2]
+    )[0][0]
 
     # tfidf_score = round(
     #     tfidf_similarity * 100,
@@ -112,6 +112,10 @@ def generate_analysis(resume_text, job_description):
         convert_to_numpy=True
     )
 
+    tfidf_score = round(
+    float(tfidf_similarity) * 100,
+    2
+    )
     semantic_score = round(
         float(
             cosine_similarity(
@@ -164,6 +168,7 @@ def generate_analysis(resume_text, job_description):
     # -----------------------------
 
     return {
+    "tfidf_match_score": tfidf_score,
     "semantic_match_score": semantic_score,
     "skill_match_score": skill_score,
     "resume_skills": resume_skills,

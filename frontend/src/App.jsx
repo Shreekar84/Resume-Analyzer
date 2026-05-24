@@ -59,7 +59,7 @@ function App() {
     } catch (error) {
       console.error(error);
       alert(
-        "Something went wrong. Please try again."
+        "The AI service may be starting up. Please wait 15-30 seconds and try again."
       );
     } finally {
       setLoading(false);
@@ -149,6 +149,23 @@ function App() {
                   ? `${result.semantic_match_score.toFixed(
                       2
                     )}%`
+                  : "0.00%"}
+              </p>
+            </div>
+
+            <div className="score-card">
+              <h3>TF-IDF Match</h3>
+
+              <p
+                className="big-score"
+                style={{
+                  color: getScoreColor(
+                    result.tfidf_match_score || 0
+                  ),
+                }}
+              >
+                {result.tfidf_match_score
+                  ? `${result.tfidf_match_score.toFixed(2)}%`
                   : "0.00%"}
               </p>
             </div>
